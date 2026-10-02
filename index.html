@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>臨床教學夥伴｜教學人才探索計畫</title>
+<style>
+:root{--ink:#20202a;--paper:#fffaf1;--pink:#ff5f87;--yellow:#ffd84d;--mint:#72e0c1;--purple:#9a7cff;--blue:#77a9ff}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;color:var(--ink);background:var(--paper);overflow:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at 8% 10%,#ffe0e9 0 13%,transparent 14%),radial-gradient(circle at 92% 15%,#ddfaef 0 13%,transparent 14%),radial-gradient(circle at 85% 88%,#e8e1ff 0 16%,transparent 17%),linear-gradient(135deg,#fffaf1,#fff)}
+input.navstate{position:absolute;opacity:0;pointer-events:none}
+.pages{width:100vw;height:100dvh;position:relative}
+.page{position:absolute;inset:0;overflow-y:auto;opacity:0;visibility:hidden;transform:translateX(28px);transition:.35s ease;padding:24px}
+#p0:checked~.pages .pg0,#p1:checked~.pages .pg1,#p2:checked~.pages .pg2,#p3:checked~.pages .pg3,#p4:checked~.pages .pg4,#p5:checked~.pages .pg5,#p6:checked~.pages .pg6{opacity:1;visibility:visible;transform:none}
+.wrap{max-width:1000px;margin:auto;min-height:calc(100dvh - 48px);display:flex;flex-direction:column;justify-content:center;padding:18px 0 45px}
+.badge,.chip{display:inline-flex;align-items:center;gap:7px;border:2px solid var(--ink);border-radius:999px;padding:8px 13px;background:white;box-shadow:3px 3px 0 var(--ink);font-weight:850;font-size:13px}
+.hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:28px;align-items:center}h1{font-size:clamp(44px,8vw,84px);line-height:.95;margin:22px 0 17px;letter-spacing:-.055em}.mark{position:relative;display:inline-block}.mark:after{content:"";position:absolute;left:-2%;right:-2%;bottom:3%;height:25%;background:var(--yellow);z-index:-1;transform:rotate(-2deg)}
+.lead{font-size:clamp(18px,2.7vw,24px);line-height:1.65;max-width:710px;font-weight:650}.perks{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.perks .chip:nth-child(2){background:#eafff8}.perks .chip:nth-child(3){background:#fff0b4}
+.island{min-height:390px;position:relative}.bubble{position:absolute;border:3px solid var(--ink);box-shadow:7px 7px 0 var(--ink);border-radius:40% 60% 55% 45%;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:900;animation:float 4s ease-in-out infinite}.b1{width:185px;height:150px;background:var(--mint);top:15px;left:0}.b2{width:175px;height:140px;background:var(--pink);top:150px;right:0;animation-delay:-1s}.b3{width:170px;height:135px;background:var(--yellow);bottom:0;left:45px;animation-delay:-2s}.b4{width:125px;height:105px;background:var(--purple);top:20px;right:12px;animation-delay:-3s}@keyframes float{50%{translate:0 -9px;rotate:2deg}}
+.btn{display:inline-block;border:2px solid var(--ink);border-radius:15px;padding:14px 20px;font-weight:900;cursor:pointer;background:white;box-shadow:4px 4px 0 var(--ink);user-select:none}.btn.next{background:var(--ink);color:white;box-shadow:6px 6px 0 var(--pink)}.hero-btn{margin-top:27px;font-size:18px;padding:17px 24px}
+.progress{display:flex;gap:7px;margin-bottom:28px}.dot{height:7px;flex:1;border-radius:999px;background:#ded9d0}.dot.on{background:var(--pink)}
+.step{font-weight:950;color:#746b80;letter-spacing:.13em;font-size:12px}.title{font-size:clamp(34px,5.8vw,56px);margin:8px 0 8px;letter-spacing:-.04em}.sub{font-size:17px;line-height:1.7;color:#5f5965;max-width:790px;margin:0 0 24px}.panel{background:rgba(255,255,255,.9);border:3px solid var(--ink);border-radius:27px;padding:23px;box-shadow:9px 9px 0 var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}.grid.three{grid-template-columns:repeat(3,1fr)}
+.choice input{position:absolute;opacity:0}.choice{display:block;position:relative;background:white;border:2.5px solid var(--ink);border-radius:19px;padding:17px;min-height:91px;cursor:pointer;box-shadow:4px 4px 0 #d9d2c7;transition:.15s}.choice b{display:block;font-size:17px;margin-bottom:5px}.choice small{line-height:1.45;color:#67616b}.choice:has(input:checked){background:#fff0a3;transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}.choice:has(input:checked):after{content:"✓";position:absolute;right:11px;top:9px;width:27px;height:27px;border-radius:50%;background:var(--ink);color:white;display:grid;place-items:center;font-weight:900}
+.text{width:100%;border:2.5px solid var(--ink);border-radius:15px;padding:14px;font:inherit;background:white;outline:none}.nav{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.note{margin-top:18px;padding:16px 18px;border-left:6px solid var(--pink);background:#fff1f5;border-radius:0 14px 14px 0;line-height:1.6}
+.reward{margin:0 0 23px;background:var(--ink);color:white;border-radius:26px;padding:25px 26px;position:relative;overflow:hidden;border:3px solid var(--ink);box-shadow:8px 8px 0 var(--yellow)}.reward:after{content:"YOUR TIME MATTERS";position:absolute;right:-5px;bottom:-13px;font-size:42px;font-weight:950;opacity:.08;white-space:nowrap}.reward .eyebrow{font-size:12px;letter-spacing:.14em;color:#ffd84d;font-weight:950}.reward h3{font-size:27px;margin:7px 0}.reward p{margin:0;line-height:1.7;color:#f8f4ff}.reward strong{color:#ffd84d}.moneytag{display:inline-flex;margin-top:12px;background:var(--yellow);color:var(--ink);padding:8px 12px;border-radius:999px;font-weight:950}
+.finish{text-align:center}.emoji{font-size:68px}.finish .panel{max-width:720px;margin:25px auto;text-align:left}
+@media(max-width:760px){.page{padding:14px 17px}.wrap{min-height:calc(100dvh - 28px)}.hero-grid{grid-template-columns:1fr}.island{display:none}.grid,.grid.three{grid-template-columns:1fr}.panel{padding:16px}.choice{min-height:82px}.progress{margin-bottom:18px}.reward{padding:21px}.title{font-size:35px}.sub{font-size:15px}}
+
+.alert{display:none;margin:14px 0 0;padding:13px 15px;border:2px solid #20202a;border-radius:14px;background:#ffe2e9;font-weight:850;box-shadow:4px 4px 0 #20202a}
+.alert.show{display:block;animation:shake .25s linear 2}
+@keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.req{color:#e83f68;font-weight:950}
+
+/* v7: zero-JavaScript page gating for iPhone / in-app HTML preview */
+.gate{opacity:.42;pointer-events:none;filter:grayscale(.35)}
+.pg1:has(input[name="name"]:valid):has(input[name="dept"]:valid):has(input[name="role"]:checked) .gate1,
+.pg2:has(input[name="topic"]:checked) .gate2,
+.pg2:has(input[name="custom_topic"]:not(:placeholder-shown)) .gate2,
+.pg3:has(input[name="joinrole"]:checked):has(input[name="frequency"]:checked) .gate3,
+.pg4:has(input[name="motivation"]:checked) .gate4,
+.pg5:has(input[name="training"]:checked):has(input[name="contact"]:checked) .gate5{
+ opacity:1;pointer-events:auto;filter:none
+}
+.pg1:has(input[name="name"]:valid):has(input[name="dept"]:valid):has(input[name="role"]:checked) #a1,
+.pg2:has(input[name="topic"]:checked) #a2,
+.pg2:has(input[name="custom_topic"]:not(:placeholder-shown)) #a2,
+.pg3:has(input[name="joinrole"]:checked):has(input[name="frequency"]:checked) #a3,
+.pg4:has(input[name="motivation"]:checked) #a4,
+.pg5:has(input[name="training"]:checked):has(input[name="contact"]:checked) #a5{display:none}
+.alert{display:block!important;background:#fff6d6;border-color:#20202a}
+
+.brand-footer{margin-top:28px;text-align:center;font-size:13px;font-weight:850;letter-spacing:.08em;color:#777}
+.brand-footer strong{color:#20202a}
+
+button.btn{font:inherit}
+button.btn:disabled{opacity:.58;cursor:wait}
+.submit-loading{position:fixed;inset:0;background:rgba(255,250,241,.88);z-index:99;display:none;place-items:center;text-align:center;padding:24px}
+.submit-loading.show{display:grid}
+.submit-card{background:#fff;border:3px solid #20202a;border-radius:24px;padding:28px;box-shadow:9px 9px 0 #20202a;max-width:380px}
+.spinner{width:44px;height:44px;border:5px solid #ece5dc;border-top-color:#ff5f87;border-radius:50%;margin:0 auto 16px;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<input class="navstate" type="radio" name="page" id="p0" checked>
+<input class="navstate" type="radio" name="page" id="p1">
+<input class="navstate" type="radio" name="page" id="p2">
+<input class="navstate" type="radio" name="page" id="p3">
+<input class="navstate" type="radio" name="page" id="p4">
+<input class="navstate" type="radio" name="page" id="p5">
+<input class="navstate" type="radio" name="page" id="p6">
+
+<form class="pages" id="talentForm" action="https://script.google.com/macros/s/AKfycbxg-ohbmCrBs-RBcpm0IkPH-m2koSAw1t2fdsmryrv74HD_BaxfWlUa5rgxpLPPNWzjNA/exec" method="post">
+<section class="page pg0"><div class="wrap"><div class="hero-grid"><div>
+<span class="badge">✦ CLINICAL TEACHING PARTNER</span>
+<h1>也許你就是<br><span class="mark">我們正在找的老師。</span></h1>
+<p class="lead">一次示範、一段回饋、一場臨床討論，都可能讓 UGY、PGY 的學習突然接上線。一起找到最適合你的教學角色。</p>
+<div class="perks"><span class="chip">⏱ 3–5 分鐘</span><span class="chip">🌱 沒經驗也歡迎</span><span class="chip">💫 教學投入有相應支持</span></div>
+<label class="btn next hero-btn" for="p1">開始探索 →</label>
+</div><div class="island"><div class="bubble b1">🩺<br>臨床技能島</div><div class="bubble b2">💬<br>溝通情境島</div><div class="bubble b3">🎯<br>評量回饋島</div><div class="bubble b4">✨<br>創新島</div></div></div><div class="brand-footer">CHIMEI MEDICAL CENTER · <strong>奇美醫院教學部</strong></div></div></section>
+
+<section class="page pg1"><div class="wrap">
+<div class="progress"><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+<span class="step">MISSION 01 · WHO ARE YOU?</span><h2 class="title">先讓我們認識你 👋</h2><p class="sub">職級讓我們了解不同角色的參與需求，不是資格審查。</p>
+<div class="panel"><input class="text" name="name" placeholder="姓名（必填）" required minlength="1" data-required="姓名" style="margin-bottom:17px"><input class="text" name="dept" placeholder="科別／單位（必填）" required minlength="1" data-required="科別／單位" style="margin-bottom:17px"><div class="grid">
+<label class="choice"><input type="radio" name="role" required value="主治醫師"><b>🩺 主治醫師</b><small>Attending physician</small></label>
+<label class="choice"><input type="radio" name="role" value="住院醫師"><b>🧑‍⚕️ 住院醫師</b><small>Resident</small></label>
+<label class="choice"><input type="radio" name="role" value="總醫師／Fellow"><b>⭐ 總醫師／Fellow</b><small>Chief resident / Fellow</small></label>
+<label class="choice"><input type="radio" name="role" value="醫事職類／其他"><b>🤝 醫事職類／其他</b><small>跨專業教學夥伴</small></label></div></div>
+<div class="alert" id="a1">⚠️ 完成「姓名＋職級＋科別／單位」後，下一頁就會亮起。</div>
+<div class="nav"><label class="btn" for="p0">← 返回</label><label class="btn next gate gate1" for="p2">下一頁 →</label></div><div class="brand-footer">CHIMEI MEDICAL CENTER · <strong>奇美醫院教學部</strong></div></div></section>
+
+<section class="page pg2"><div class="wrap">
+<div class="progress"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+<span class="step">MISSION 02 · YOUR TEACHING SPARK</span><h2 class="title">哪種教學，會讓你想加入？</h2><p class="sub">可複選。沒有正式授課經驗也沒關係，我們想先知道你的興趣在哪裡。</p>
+<div class="grid three">
+<label class="choice"><input type="checkbox" name="topic" value="臨床技能"><b>🩺 臨床技能</b><small>理學檢查、技術操作、技能指導</small></label>
+<label class="choice"><input type="checkbox" name="topic" value="醫病溝通"><b>💬 醫病溝通</b><small>困難情境、告知、SDM、溝通技巧</small></label>
+<label class="choice"><input type="checkbox" name="topic" value="六大核心能力"><b>🧭 六大核心能力</b><small>病人照護、醫學知識、專業素養等</small></label>
+<label class="choice"><input type="checkbox" name="topic" value="情境模擬"><b>🎭 情境模擬</b><small>SP、模擬病人、跨團隊演練</small></label>
+<label class="choice"><input type="checkbox" name="topic" value="OSCE／臨床評量"><b>🎯 OSCE／臨床評量</b><small>EPA、Mini-CEX、CbD、DOPS</small></label>
+<label class="choice"><input type="checkbox" name="topic" value="UGY／PGY 帶教"><b>🧑‍⚕️ UGY／PGY 帶教</b><small>小組、床邊與案例討論</small></label>
+<label class="choice"><input type="checkbox" name="topic" value="急救／高風險情境"><b>🚑 急救／高風險情境</b><small>危機處置與團隊合作</small></label>
+<label class="choice"><input type="checkbox" name="topic" value="全人／醫學人文"><b>🧠 全人／醫學人文</b><small>倫理、病安、全人照護</small></label>
+<label class="choice"><input type="checkbox" name="topic" value="創新教學"><b>✨ 創新教學</b><small>AI、AR/VR、數位教材</small></label>
+</div><input class="text" name="custom_topic" placeholder="💡 還有一堂課，我其實很想教……" style="margin-top:16px">
+<div class="alert" id="a2">⚠️ 請至少選 1 項教學領域，或直接填寫你的其他專長／想教的主題。</div>
+<div class="nav"><label class="btn" for="p1">← 上一頁</label><label class="btn next gate gate2" for="p3">下一頁 →</label></div><div class="brand-footer">CHIMEI MEDICAL CENTER · <strong>奇美醫院教學部</strong></div></div></section>
+
+<section class="page pg3"><div class="wrap">
+<div class="progress"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></div>
+<span class="step">MISSION 03 · HOW WOULD YOU JOIN?</span><h2 class="title">不用一開始就站 C 位 🎤</h2><p class="sub">從你舒服的方式開始。可複選。</p>
+<div class="grid">
+<label class="choice"><input type="checkbox" name="joinrole" value="先觀摩／當助教"><b>👀 先觀摩／當助教</b><small>先熟悉流程，再慢慢加入</small></label>
+<label class="choice"><input type="checkbox" name="joinrole" value="小組帶領"><b>👥 小組帶領</b><small>討論、案例或技能練習</small></label>
+<label class="choice"><input type="checkbox" name="joinrole" value="共同授課"><b>🤝 共同授課</b><small>與既有教師搭配，不用單打獨鬥</small></label>
+<label class="choice"><input type="checkbox" name="joinrole" value="獨立授課"><b>🎤 獨立授課</b><small>有合適主題時，我願意試試</small></label>
+<label class="choice"><input type="checkbox" name="joinrole" value="評量／回饋"><b>🎯 評量／回饋</b><small>OSCE、EPA、臨床能力評量</small></label>
+<label class="choice"><input type="checkbox" name="joinrole" value="教案共同設計"><b>🧩 教案共同設計</b><small>不上台，也可以一起把課做好</small></label>
+</div>
+<div class="panel" style="margin-top:18px">
+<b style="font-size:19px">⏱ 你期待的教學參與頻率是？ <span class="req">*</span></b>
+<p style="margin:7px 0 15px;color:#67616b;line-height:1.55">有熱忱不代表要天天出現。選一個最符合你目前生活節奏的方式。</p>
+<div class="grid">
+<label class="choice"><input type="radio" name="frequency" value="偶爾支援就好"><b>🌤 偶爾支援就好</b><small>有合適主題或臨時需求時，再問問我</small></label>
+<label class="choice"><input type="radio" name="frequency" value="每年約 1–2 次"><b>🌱 每年約 1–2 次</b><small>希望低頻但持續參與</small></label>
+<label class="choice"><input type="radio" name="frequency" value="每季約 1 次"><b>🌿 每季約 1 次</b><small>有固定但不密集的教學節奏</small></label>
+<label class="choice"><input type="radio" name="frequency" value="每月 1 次以上也可以"><b>🔥 每月 1 次以上也可以</b><small>如果主題合適，我願意較常參與</small></label>
+<label class="choice"><input type="radio" name="frequency" value="先加入人才庫"><b>🧭 先加入人才庫</b><small>目前不承諾頻率，有合適機會再聯繫</small></label>
+</div></div><div class="note"><b>🌱 「我還不會，但我願意學」也是我們很想找到的人。</b><br>教學能力可以培養，熱忱比較難用公文生出來。</div>
+<div class="alert" id="a3">⚠️ 請選「至少 1 種參與方式＋1 個教學頻率」。</div>
+<div class="nav"><label class="btn" for="p2">← 上一頁</label><label class="btn next gate gate3" for="p4">下一頁 →</label></div><div class="brand-footer">CHIMEI MEDICAL CENTER · <strong>奇美醫院教學部</strong></div></div></section>
+
+<section class="page pg4"><div class="wrap">
+<div class="progress"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></div>
+<span class="step">MISSION 04 · YOUR TIME MATTERS</span><h2 class="title">投入教學，不會只是「為愛發電」🤣</h2><p class="sub">我們希望好的教學能持續，因此除了熱忱，也重視每位教師實際投入的時間與專業。</p>
+<div class="reward"><div class="eyebrow">TEACHING REWARD & SUPPORT</div><h3>✨ 您的專業與時間，值得被重視。</h3><p>依實際課程性質及院內相關規範，參與教學活動可提供<strong>相應之授課／教學費用</strong>；實際給付方式與標準依各活動規定辦理。</p><span class="moneytag">💰 有教學費用，不只靠熱血</span></div>
+<h3 style="font-size:22px;margin:0 0 13px">什麼會讓你更願意跨出第一步？</h3>
+<div class="grid">
+<label class="choice"><input type="checkbox" name="motivation" value="彈性參與時間"><b>🕐 彈性參與時間</b><small>能配合臨床工作安排</small></label>
+<label class="choice"><input type="checkbox" name="motivation" value="有人一起備課"><b>🤜 有人一起備課</b><small>不用從零開始摸索</small></label>
+<label class="choice"><input type="checkbox" name="motivation" value="教材／教案資源"><b>📚 教材／教案資源</b><small>有素材可以直接使用或修改</small></label>
+<label class="choice"><input type="checkbox" name="motivation" value="教學技巧培訓"><b>🌱 教學技巧培訓</b><small>帶討論、回饋、評量與設計</small></label>
+<label class="choice"><input type="checkbox" name="motivation" value="教學歷程紀錄"><b>📈 教學歷程紀錄</b><small>留下授課與師資發展軌跡</small></label>
+<label class="choice"><input type="checkbox" name="motivation" value="表揚／成果機會"><b>🏅 表揚／成果機會</b><small>教學成果分享與院內認可</small></label>
+<label class="choice"><input type="checkbox" name="motivation" value="授課／教學費用"><b>💰 授課／教學費用</b><small>專業投入獲得相應實質支持</small></label>
+<label class="choice"><input type="checkbox" name="motivation" value="科部／主管支持"><b>🏥 科部／主管支持</b><small>有制度支持，更容易持續參與</small></label>
+</div>
+<div class="alert" id="a4">⚠️ 至少選 1 項會提升參與意願的支持方式。</div>
+<div class="nav"><label class="btn" for="p3">← 上一頁</label><label class="btn next gate gate4" for="p5">下一頁 →</label></div><div class="brand-footer">CHIMEI MEDICAL CENTER · <strong>奇美醫院教學部</strong></div></div></section>
+
+<section class="page pg5"><div class="wrap">
+<div class="progress"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i></div>
+<span class="step">MISSION 05 · GROW WITH US</span><h2 class="title">你想解鎖哪項教學技能？ 🔓</h2><p class="sub">你的答案也會成為未來師資培育課程規劃的重要依據。</p>
+<div class="grid">
+<label class="choice"><input type="checkbox" name="training" value="有效回饋技巧"><b>💬 有效回饋技巧</b><small>具體、可行又能促進學習</small></label>
+<label class="choice"><input type="checkbox" name="training" value="小組帶領技巧"><b>👥 小組帶領技巧</b><small>Facilitation 與互動教學</small></label>
+<label class="choice"><input type="checkbox" name="training" value="EPA／臨床評量"><b>🎯 EPA／臨床評量</b><small>Mini-CEX、CbD、DOPS 等</small></label>
+<label class="choice"><input type="checkbox" name="training" value="OSCE／模擬教學"><b>🎭 OSCE／模擬教學</b><small>考官、教案與情境設計</small></label>
+<label class="choice"><input type="checkbox" name="training" value="AI × 臨床教學"><b>🤖 AI × 臨床教學</b><small>教材、教案與數位工具</small></label>
+<label class="choice"><input type="checkbox" name="training" value="教學成果發表"><b>📣 教學成果發表</b><small>將教學轉化成可呈現成果</small></label>
+</div>
+<div class="panel" style="margin-top:18px"><b>未來若有適合你的教學活動，可以與你聯繫嗎？</b><div class="grid" style="margin-top:13px">
+<label class="choice"><input type="radio" name="contact" required value="可以，歡迎找我"><b>🙌 可以，歡迎找我</b><small>有合適活動，可以一起聊聊</small></label>
+<label class="choice"><input type="radio" name="contact" value="先加入人才庫"><b>🌱 先加入人才庫</b><small>先了解，未來有機會再參與</small></label></div></div>
+<div class="alert" id="a5">⚠️ 最後一步：選至少 1 項培育技能＋聯繫意願。</div>
+<div class="nav"><label class="btn" for="p4">← 上一頁</label><button class="btn next gate gate5" type="submit" id="submitBtn">送出並完成探索 ✦</button></div><div class="brand-footer">CHIMEI MEDICAL CENTER · <strong>奇美醫院教學部</strong></div></div></section>
+
+<section class="page pg6"><div class="wrap finish"><div class="emoji">🧭✨</div><h2 class="title">已送出，找到你了，教學夥伴。</h2><p class="lead" style="margin:auto">謝謝你讓我們知道，你想教什麼、願意怎麼參與，以及我們可以怎麼支持你。</p>
+<div class="panel"><b id="submitStatus">✓ 資料已送至奇美醫院教學部人才庫</b><br><br><b>下一步</b><p style="line-height:1.7;margin-bottom:0">未來若有符合你的專長與興趣的 UGY／PGY、臨床技能、醫病溝通、六大核心能力或模擬教學活動，我們就更容易找到對的人，而不是每次都從通訊錄開始猜。</p></div>
+<label class="btn next" for="p0">回到首頁 ↻</label><div class="brand-footer">CHIMEI MEDICAL CENTER · <strong>奇美醫院教學部</strong></div></div></section>
+</form>
+
+
+<div class="submit-loading" id="submitLoading">
+  <div class="submit-card">
+    <div class="spinner"></div>
+    <b style="font-size:20px">正在送進人才庫…</b>
+    <p style="margin-bottom:0;line-height:1.6;color:#67616b">請稍候，不要關閉頁面。</p>
+  </div>
+</div>
+
+<script>
+(function () {
+  var form = document.getElementById('talentForm');
+  var submitBtn = document.getElementById('submitBtn');
+  var loading = document.getElementById('submitLoading');
+
+  if (!form) return;
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    // Final defensive validation.
+    function any(name) {
+      return !!form.querySelector('input[name="' + name + '"]:checked');
+    }
+    var name = (form.querySelector('[name="name"]') || {value:''}).value.trim();
+    var dept = (form.querySelector('[name="dept"]') || {value:''}).value.trim();
+    var customTopic = (form.querySelector('[name="custom_topic"]') || {value:''}).value.trim();
+
+    var valid =
+      name &&
+      dept &&
+      any('role') &&
+      (any('topic') || customTopic) &&
+      any('joinrole') &&
+      any('frequency') &&
+      any('motivation') &&
+      any('training') &&
+      any('contact');
+
+    if (!valid) {
+      alert('還有必填題目尚未完成，請回前面確認後再送出。');
+      return;
+    }
+
+    if (submitBtn) submitBtn.disabled = true;
+    if (loading) loading.classList.add('show');
+
+    try {
+      var data = new URLSearchParams(new FormData(form));
+
+      await fetch('https://script.google.com/macros/s/AKfycbxg-ohbmCrBs-RBcpm0IkPH-m2koSAw1t2fdsmryrv74HD_BaxfWlUa5rgxpLPPNWzjNA/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        body: data
+      });
+
+      // no-cors returns an opaque response, but successful completion means the request
+      // has been handed off to the Apps Script endpoint.
+      document.getElementById('p6').checked = true;
+      var finishPage = document.querySelector('.pg6');
+      if (finishPage) finishPage.scrollTop = 0;
+
+      form.reset();
+
+    } catch (err) {
+      console.error(err);
+      alert('送出時發生連線問題，請確認網路後再試一次。\n\n若持續發生，請聯繫奇美醫院教學部。');
+    } finally {
+      if (loading) loading.classList.remove('show');
+      if (submitBtn) submitBtn.disabled = false;
+    }
+  });
+})();
+</script>
+
+</body></html>
